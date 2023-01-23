@@ -1,0 +1,82 @@
+{% include 'adminheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide-1.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <center>
+<form method="post" style="margin-top:5px" enctype="multipart/form-data">
+  {% if data['updatecategorys'] %}
+    <br><br><br>
+
+  <h2 class="animate__animated animate__fadeInDown">Update Category</h2>
+
+    <table class="table" style="width: 500px;color: white">
+    <tr>
+      <th>category name</th>
+      <td><input type="text" name="cate" required=""class="form-control" value="{{ data['updatecategorys'][0]['category'] }}"></td>
+    </tr>
+    
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="update" value="Update" class="btn btn-success"></td>
+    </tr>
+  </table>
+
+  {% else %}
+  <br><br><br>
+  <h2 class="animate__animated animate__fadeInDown"> Category</h2>
+
+    <table class="table" style="width: 500px;color: white">
+    <tr>
+      <th>category name</th>
+      <td><input type="text" name="cate" required=""class="form-control"></td>
+    </tr>
+    
+    <tr>
+
+      <td align="center" colspan="2"><input type="submit" name="add" value="ADD" class="btn btn-success" ></td>
+    </tr>
+  </table>
+  {% endif %}
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+  <center>
+  <h2 style="color: black">  View Category</h2>
+
+    <table class="table" style="width: 500px;">
+  <tr>
+    <th>Categoryname</th>
+
+  </tr>
+  {% for row in data['categorys'] %}
+  <tr>
+    <td>{{ row['category'] }}</td>
+    <td><a class="btn btn-danger" href="?action=update&cid={{row['category_id']}}">update</a></td>
+    <td><a class="btn btn-success" href="?action=delete&cid={{row['category_id']}}">delete</a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+</center>
+</form>
+             
+
+   
+ 
+          
+{% include 'footer.html'%}
+

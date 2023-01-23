@@ -1,0 +1,43 @@
+{% include 'adminheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide-1.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Send Reply</h2>
+<form method="post">
+
+<center>
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+ <table class="table" style="width: 600px;color: white">
+    <tr>
+      <th>reply</th>
+      <td><input type="text" name="r" class="form-control"></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="send" value="SEND" class="btn btn-success"></td>
+    </tr>
+  </table>
+</center>
+    </form>                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+          
+{% include 'footer.html'%}
+

@@ -1,0 +1,94 @@
+{% include 'userheader.html'%}
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var ddlFruits = $("#ddlFruits");
+            if (ddlFruits.val() == "") {
+                //If the "Please Select" option is selected display error.
+                alert("Please select an option!");
+                return false;
+            }
+            return true;
+        });
+    });
+</script>
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Upload New Property</h2>
+
+<form method="post" enctype="multipart/form-data">
+<center>
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+  <tr>
+    <th>Property</th>
+    <td>
+      <select name="pro" class="form-control" id="ddlFruits">
+        <option value="">select-property</option>
+        {%for row in data['view']%}
+        <option value="{{row['property_id']}}">{{row['property_title']}}</option>
+        {%endfor%}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>Property Image</th>
+    <td><input type="file" name="i" class="form-control" required=""></td>
+  </tr>
+  <tr><td align="center" colspan="2"><input type="submit" id="btnSubmit" name="upload" value="UPLOAD" class="btn btn-success"></td></tr>
+</table>
+</center>
+    </form>                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+<center><h1>View Upload New Property </h1>
+</center>    
+
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us" style="    ">
+
+      <div class="container">
+
+        <div class="row">
+          {% for row in data['users']%}
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+
+            <div class="box" style="width:200px" >
+              <div><td><img src="/{{row['image']}}" height="200" width="200"></td></div>
+              <span><h4>Title:{{row['property_title']}}</h4></span>
+              <p><h6>Description:{{row['description']}}</h6></p>
+              <h5>Amount:{{row['amount']}}</h5>
+              <td><a class="btn btn-info" href="userviewrequest?property_id={{row['property_id']}}">view request</a></td>
+            </div>
+
+          </div>
+                                        {% endfor%}
+
+        </div>
+
+      </div>
+
+    </section><!-- End Why Us Section -->
+
+{% include 'footer.html'%}
+

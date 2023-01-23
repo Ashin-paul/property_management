@@ -1,0 +1,60 @@
+{% include 'userheader.html' %}
+
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden;">
+            <div class="carousel-container" >
+              <div class="carousel-content">
+
+<form method="post"  style="margin-bottom:-7em" class="animate__animated animate__fadeInUp">
+  <center>
+
+
+
+<h2 class="animate__animated animate__fadeInDown">Send Complaint </h2>
+   <h1></h1>
+    <table class="table" style="width: 500px;color: white">
+      <tr>
+        <th>complaint</th>
+        <td><input type="text" name="com" class="form-control"></td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2"><input type="submit" name="send" value="SEND" class="btn btn-success"></td>
+      </tr>
+    </table>
+  </center>
+</div></div></div></div></div></div></section>
+  <center>
+
+    <h1>view complaint</h1>
+    <table class="table" style="width: auto">
+      <tr>
+        <th>complaint</th>
+        <th>reply</th>
+        <th>date</th>
+      </tr>
+      {% for row in data['comp']%}
+      <tr>
+        <td>{{row['complaint']}}</td>
+        <td>{{row['reply']}}</td>
+        <td>{{row['date_time']}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+</center>
+</form>
+
+
+
+{% include 'footer.html' %}

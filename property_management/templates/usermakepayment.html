@@ -1,0 +1,94 @@
+{% include 'userheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Make Payment</h2>
+
+                                      <!--   <h1 style="color:white;font-size: xxx-large;    margin-left: 2em;
+    font-weight: bold">Make Payment</h1> -->
+
+
+                        <!-- <form name="sentMessage" class="contact-form" method="post" novalidate>
+                            <h3>Drop us a line</h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row control-group">
+                                        <div class="form-group col-xs-12 controls"> -->
+
+                                     </div></div></div></section>           
+ <style type="text/css">
+        td{background-color: transparent;font-weight: 2px;color: black}
+        hr{border-color: orange}
+        #b {
+            border: 1px solid grey; 
+            padding: 10px;
+        }
+    </style>
+
+
+
+<center>
+	<form method="post" >
+
+        <header class="section-header">
+
+		<h3 style="color: black"></h3>
+		<br><br>
+            <table style="width: 500px;color: black" class="table table-borderless" id="b"> 
+			<tr> 
+                    <td style="color: black">PAYMENT DETAILS</td> 
+                    <td><img src="/static/assets/img/credit_card.png" style="width:100%"/></td>
+
+                </tr>
+                <tr> 
+                    <td colspan="2" style="color: black"> <small>CARD NUMBER</small><br> 
+                        <input type="text" placeholder="Enter a valid card number"  class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9]{16}" title="Enter 16 digit Card number">
+                    </td> 
+                </tr>
+                <tr> 
+
+                    <td style="color: black" > <small>CVV</small><br> 
+                        <input type="password" placeholder="CVV" class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9]{3}" title="Enter 3 digit CV number">
+                    </td> 
+                    <td style="color: black"> <small>EXPIRATION DATE</small><br> 
+                        <input type="text" placeholder="MM/YY"  class="form-control" style="height: 40px;font-size: 17px;"  pattern="[0-9,/]{5}" title="Enter 3 digit CV number"> 
+                    </td>
+
+
+                </tr>
+                <tr> 
+                    <td colspan="2" style="color: black"> <small>CARD HOLDER</small><br> 
+                        <input type="text" placeholder="Name on card"  class="form-control" style="height: 40px;font-size: 17px;" data-valid='only-text'  > </td>
+                    </tr>
+                    <tr><td colspan="2" style="color: black"> <small>AMOUNT</small><br>
+                    
+                     <input type="text" value="{{data['total']}}" name="" class="form-control" style="height: 40px;font-size: 17px;" placeholder="Amount"></td></tr>
+                            
+                	<tr> 
+                            <td colspan="2"> 
+                                <input type="submit" value="PAY"  class="btn btn-success" style="width: 100%" name="payment"> </td>
+                            </tr>
+		</table>
+		
+</form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ {% include 'footer.html'%}

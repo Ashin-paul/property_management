@@ -1,0 +1,83 @@
+{% include 'publicheader.html' %}
+
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 900px">
+    <div class="hero-container" >
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel" >
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox" >
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg); overflow: auto;height: 900px">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <br>  <br>  <br>  <br>  <br>  <br> <br> <br>  <br>   
+                <h2 class="animate__animated animate__fadeInDown">  USER REGISTER </h2>
+
+
+<form method="post" style="margin-top: 20px" class="animate__animated animate__fadeInUp">
+	<center>
+<table class="table" style="width:500px;color: white;margin-top: 3em">
+                  <tr>
+                    <th>FirstName</th>
+                    <td><input type="text" name="fname" required pattern="[a-zA-Z ]+$" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>LastName</th>
+                    <td><input type="text" name="lname" required pattern="[a-zA-Z ]+$" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>House Name</th>
+                    <td><input type="text" name="h" required  class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Place</th>
+                    <td><input type="text" name="place" required pattern="[a-zA-Z0-9 ]+$" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Pincode</th>
+                    <td><input type="number" min="0" minlength="6" maxlength="6" name="pin" required  class="form-control"></td>
+                  </tr>
+                
+                  <tr>
+                    <th>Phone</th>
+                    <td><input type="number" name="phone" min="0" minlength="10" maxlength="10" required class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="email" required class="form-control"></td>
+                  </tr>
+ 
+                   <tr>
+                       <th>Username</th>
+                         <td><input type="text" name="uname" required class="form-control"></td>
+                   </tr>
+                  <tr>
+                      <th>Password</th>
+                      <td><input type="password" name="pwd" required class="form-control"></td>
+                   </tr>
+                   <tr>
+                       <td align="center" colspan="2"><input type="submit" name="register" value="REGISTER" class="btn btn-success"></td>
+                   </tr>
+        </table>
+	</center>
+</form>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+
+
+
+
+{% include 'footer.html' %}

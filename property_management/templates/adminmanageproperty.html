@@ -1,0 +1,176 @@
+{% include 'adminheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 2 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide-2.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+<!--                 <h2 class="animate__animated animate__fadeInDown">View Users </h2>
+ -->
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var ddlFruits = $("#ddlFruits");
+            if (ddlFruits.val() == "") {
+                //If the "Please Select" option is selected display error.
+                alert("Please select an option!");
+                return false;
+            }
+            return true;
+        });
+    });
+</script>
+
+
+<form method="post" >
+<center>
+
+
+
+
+    {% if data['updates']%}
+ <h2 style="color: white" class="animate__animated animate__fadeInDown"> Update Property</h2>
+    
+     <table class="table" style="width: 600px ;color: white">
+          <tr>
+            <th>UserName</th>
+            <td><select name="u" required="" class="form-control"> 
+              <option value="{{data['updates'][0]['user_id']}}">
+                {{data['updates'][0]['firstname']}} {{data['updates'][0]['lastname']}}
+              </option>
+            {%for row in data['user']%}
+
+              <option value="{{row['user_id']}}">{{row['firstname']}} {{row['lastname']}} </option> 
+              {%endfor%}
+            </select></td>
+        </tr>
+      
+         <tr>
+            <th>Category</th>
+            <td><select name="c" required class="form-control">  
+ <option value="{{data['updates'][0]['category_id']}}">
+                {{data['updates'][0]['category']}}
+              </option>
+            {%for row in data['cat']%}
+
+                 <option value="{{row['category_id']}}">{{row['category']}} </option> 
+                 {%endfor%}
+            </select></td>         </tr>
+        
+             <tr>
+            <th>Property Title</th>
+            <td><input type="text" name="p" required class="form-control" value="{{data['updates'][0]['property_title']}}"></td>
+        </tr>
+          <tr>
+            <th>Amount</th>
+            <td><input type="text" required="" class="form-control" name="a" value="{{data['updates'][0]['amount']}}"></td>
+         </tr>
+         
+          <tr>
+            <th>Description</th>
+            <td><input type="text" required="" class="form-control" name="d" value="{{data['updates'][0]['description']}}"></td>
+         </tr>
+   
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="update" value="UPDATE"></td>
+        </tr>
+
+    </table>
+    {%else%}
+        <h2 style="color: white" class="animate__animated animate__fadeInDown">Add Property</h2>
+    
+    <table class="table" style="width: 600px ;color: white">
+          <tr>
+            <th>UserName</th>
+            <td><select name="u"   class="form-control" id="ddlFruits"> 
+              <option value="">-select-</option>
+            {%for row in data['user']%}
+
+              <option value="{{row['user_id']}}">{{row['firstname']}} {{row['lastname']}} </option> 
+              {%endfor%}
+            </select></td>
+        </tr>
+      
+         <tr>
+            <th>Category</th>
+                <td><select name="c"  class="form-control" id="ddlFruits"> 
+              <option value="">-select-</option>
+                              {%for row in data['cat']%}
+
+                 <option value="{{row['category_id']}}">{{row['category']}} </option> 
+                 {%endfor%}
+            </select></td>         </tr>
+        
+             <tr>
+            <th>Property Title</th>
+            <td><input type="text" name="p" required class="form-control"></td>
+        </tr>
+          <tr>
+            <th>Amount</th>
+            <td><input type="text" required="" class="form-control" name="a"></td>
+         </tr>
+         
+          <tr>
+            <th>Description</th>
+            <td><input type="text" required="" class="form-control" name="d"></td>
+         </tr>
+        
+   
+
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" id="btnSubmit"  name="add" value="ADD"></td>
+        </tr>
+
+    </table>
+    {%endif%}
+    
+    </center>
+</form>
+
+                    
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ <center>
+  <h1>View Property</h1>
+    <table class="table" style="width: 1300px;color: #000 !important">
+        <tr>
+            <th>Username</th>
+            <th>Category</th>
+            <th>Property Title</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date-Time</th>
+        </tr>
+        {% for row in data['view']%}
+        <tr>
+
+        <td>{{row['firstname']}} {{row['lastname']}}</td>
+        <td>{{row['category']}}</td>
+        <td>{{row['property_title']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['description']}}</td>
+        <td>{{row['date_time']}}</td>
+ <td><a class="btn btn-warning" href="?action=update&property_id={{row['property_id']}}">update</a></td>  
+<td><a class="btn btn-danger" href="?action=delete&property_id={{row['property_id']}}">remove unwanted property</a></td>  
+    </tr>  
+      {%endfor%}
+
+    </table>
+ </center>
+          
+{% include 'footer.html'%}

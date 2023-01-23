@@ -1,0 +1,94 @@
+{% include 'userheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">View Property </h2>
+
+
+<center>
+<form method="post">	
+<table class="" style="width:500px">
+<tr>
+<td>
+	<select name="sname" placeholder="search by category" class="form-control">
+		<option>search by category</option>
+		{% for row in data['cat']%}
+		<option value="{{row['category_id']}}">{{row['category']}}</option>
+
+		{%endfor%}
+	</select>
+</td>	
+<td><input type="submit" name="search" value="search" class="btn btn-info"></td>	
+</tr>
+	</table>
+</form>
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+        <tr>
+            <th>Username</th>
+            <th>Category</th>
+            <th>Property Title</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date-Time</th>
+        </tr>
+     {% if data['search']%}
+
+        {% for row in data['search']%}
+        <tr>
+
+        <td>{{row['firstname']}} {{row['lastname']}}</td>
+        <td>{{row['category']}}</td>
+        <td>{{row['property_title']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['description']}}</td>
+        <td>{{row['date_time']}}</td>
+		<td><a class="btn btn-info" href="userchat?user_id={{row['user_id']}}">message</a></td>
+        <td><a class="btn btn-danger" href="?action=requestproperty&user_id={{row['user_id']}}&amount={{row['amount']}}&property_id={{row['property_id']}}">make an request for property</a></td>
+    </tr>  
+      {%endfor%}
+
+    </table>
+   {%else%}
+
+        {% for row in data['view']%}
+        <tr>
+
+        <td>{{row['firstname']}} {{row['lastname']}}</td>
+        <td>{{row['category']}}</td>
+        <td>{{row['property_title']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['description']}}</td>
+        <td>{{row['date_time']}}</td>
+        <td><a class="btn btn-info" href="userchat?user_id={{row['user_id']}}">message</a></td>
+        <td><a class="btn btn-danger" href="?action=requestproperty&user_id={{row['user_id']}}&amount={{row['amount']}}&property_id={{row['property_id']}}">make an request for property</a></td>
+        
+    </tr>  
+      {%endfor%}
+    {%endif%}
+
+    </table>
+
+</center>
+                    
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+          
+{% include 'footer.html'%}

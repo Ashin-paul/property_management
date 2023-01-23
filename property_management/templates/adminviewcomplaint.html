@@ -1,0 +1,57 @@
+{% include 'adminheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide-1.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">View Complaint </h2>
+
+
+<center>
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+	<h1 style="color: white"></h1>
+		<table class="table" style="width: auto;color: white">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th> Complaint</th>
+				<th> Reply</th>
+				<th>Date</th>
+			</tr>
+			{% for row in data['complaints']%}
+			<tr>
+				<td>{{row['firstname']}}</td>
+				<td>{{row['lastname']}}</td>
+				<td>{{row['complaint']}}</td>
+				{% if row['reply']=="reply-pending"%}
+			<td><a class="btn btn-success" href="adminsendreply?cid={{row['complaint_id']}}">reply</a></td>
+					{% else %}
+				<td>{{row['reply']}}</td>
+				{%endif%}
+				<td>{{row['date']}}</td>
+			</tr>
+			{% endfor%}
+		</table>
+
+</center>
+                    
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+          
+{% include 'footer.html'%}

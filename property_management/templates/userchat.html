@@ -1,0 +1,67 @@
+{% include 'userheader.html' %}
+
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden;">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Chat </h2>
+
+
+<form method="post" enctype="multipart/form-data" style="margin-top: 10px" class="animate__animated animate__fadeInUp">
+	<center>
+	 <center>
+    <table class="" style="width: 700px">
+      <tr>
+        <td><input type="text" name="msg" class="form-control"></td>
+     
+        <td align="center" ><input type="submit" name="send" value="send" class="btn btn-success"></td>
+      </tr>
+    </table>
+    <div style="overflow-y: auto;height: 500px">
+     <table class="table" style="width: 900px;color: #fff !important">
+
+        {% for row in data['view']%}
+        {% if row['sender_id']==data['user']%}
+        <tr>
+          <td align="right">{{row['message']}}</td>
+        </tr>
+        {%else%}
+        <tr>
+          <td align="left">{{row['message']}}</td>
+        </tr>
+        {%endif%}       
+
+      {%endfor%}
+
+    </table>
+  </div>
+ </center>
+         
+	</center>
+
+
+
+</form>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+  
+{% include 'footer.html' %}
+

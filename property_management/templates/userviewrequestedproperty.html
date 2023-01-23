@@ -1,0 +1,51 @@
+{% include 'userheader.html'%}
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">View Requested Property</h2>
+
+
+<center>
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+	 <tr>
+            <th>Username</th>
+            <th>Property Title</th>
+            <th>Amount</th>
+            <th>Date-Time</th>
+        </tr>
+        {% for row in data['view']%}
+        <tr>
+
+        <td>{{row['firstname']}} {{row['lastname']}}</td>
+        <td>{{row['property_title']}}</td>
+        <td>{{row['amount']}}</td>
+        <td>{{row['date_time']}}</td>
+        <td><a class="btn btn-success" href="usermakepayment?request_id={{row['request_id']}}&total={{row['amount']}}">make payment</a></td>
+</tr>
+		{% endfor%}
+</table>
+</center>
+                    
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+ 
+          
+{% include 'footer.html'%}
+

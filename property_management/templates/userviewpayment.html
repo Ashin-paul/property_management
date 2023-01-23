@@ -1,0 +1,73 @@
+{% include 'userheader.html' %}
+
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<!--         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+ -->
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/static/assets/img/slide/slide8.jpg);overflow: hidden;">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">View Payment </h2>
+
+
+<form method="post" enctype="multipart/form-data" style="margin-top: 10px" class="animate__animated animate__fadeInUp">
+	<center>
+	 <center>
+<!--   <h1>View Request Property</h1>
+ -->    <table class="table" style="width: 500px;color: #fff !important">
+        <tr>
+            
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        {% for row in data['view']%}
+        <tr>
+
+        
+        <td>{{row['amount']}}</td>
+        <td>{{row['date']}}</td>
+    </tr>  
+      {%endfor%}
+
+    </table>
+ </center>
+         
+	</center>
+
+
+
+</form>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+<!--  <center>
+      <h2 class="animate__animated animate__fadeInDown">View Uploads</h2>
+
+
+<table class="table" style="width: auto;color: white" class="animate__animated animate__fadeInDown">
+  <tr>
+    
+    <th>Image</th>
+  </tr>
+    
+</table>
+</center> -->
+
+
+
+
+{% include 'footer.html' %}
